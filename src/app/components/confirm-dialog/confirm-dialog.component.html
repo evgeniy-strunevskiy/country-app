@@ -1,0 +1,14 @@
+<h1 mat-dialog-title>{{ data.title || 'Подтверждение' }}</h1>
+
+<div mat-dialog-content>
+  {{ data.message || 'Вы уверены, что хотите выполнить это действие?' }}
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button (click)="dialogRef.close(false)">
+    {{ data.cancelText || 'Отмена' }}
+  </button>
+  <button mat-raised-button color="warn" (click)="dialogRef.close(true)">
+    {{ data.confirmText || 'Удалить' }}
+  </button>
+</div>
