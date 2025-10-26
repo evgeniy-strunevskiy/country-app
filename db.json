@@ -1,0 +1,60 @@
+{
+  "countries": [
+    {
+      "id": "1",
+      "name": "France"
+    },
+    {
+      "id": "2",
+      "name": "Germany"
+    },
+    {
+      "id": "3",
+      "name": "Italy"
+    },
+    {
+      "id": "4",
+      "name": "Spain"
+    },
+    {
+      "id": "5",
+      "name": "United Kingdom"
+    },
+    {
+      "id": "6",
+      "name": "Portugal"
+    },
+    {
+      "id": "7",
+      "name": "Netherlands"
+    },
+    {
+      "id": "8",
+      "name": "Belgium"
+    },
+    {
+      "id": "9",
+      "name": "Switzerland"
+    },
+    {
+      "id": "10",
+      "name": "Sweden"
+    },
+    {
+      "id": "11",
+      "name": "Norway"
+    },
+    {
+      "id": "12",
+      "name": "Finland"
+    },
+    {
+      "id": "13",
+      "name": "Poland"
+    },
+    {
+      "id": "14",
+      "name": "Greece"
+    }
+  ]
+}
