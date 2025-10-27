@@ -44,10 +44,6 @@ export class CountryListComponent implements OnInit, AfterViewInit {
   constructor() {
     effect(() => {
       this.dataSource.data = this.countries();
-
-      if (this.paginator) {
-        this.dataSource.paginator = this.paginator;
-      }
     });
   }
 
