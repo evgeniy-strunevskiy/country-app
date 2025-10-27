@@ -1,0 +1,17 @@
+<h2>{{ countryId ? 'Редактировать страну' : 'Добавить страну' }}</h2>
+<form [formGroup]="countryForm" (ngSubmit)="onSubmit()">
+  <mat-form-field>
+    <mat-label>Название</mat-label>
+    <input matInput formControlName="name">
+    @if (countryForm.get('name')?.hasError('required')) {
+    <mat-error>Название обязательно</mat-error>
+    }
+    @if (countryForm.get('name')?.hasError('maxlength')) {
+    <mat-error>Название не должно превышать 255 символов</mat-error>
+    }
+  </mat-form-field>
+  <div>
+    <button mat-button type="button" routerLink="/">Отмена</button>
+    <button mat-raised-button color="primary" type="submit" [disabled]="countryForm.invalid">Сохранить</button>
+  </div>
+</form>
