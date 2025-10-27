@@ -1,59 +1,90 @@
-# CountryApp
+# Country App
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.17.
+Простое приложение на Angular для управления списком стран. Включает:
+- Список стран с использованием Angular Material (таблица/стили)
+- Создание/редактирование страны через реактивную форму
+- Удаление с подтверждением через диалог
+- Мок REST API на базе json-server (db.json)
 
-## Development server
+Проект использует Angular 19, Angular Material и RxJS. Создан с помощью Angular CLI.
 
-To start a local development server, run:
+## Структура проекта
 
-```bash
-ng serve
-```
+Основные каталоги и файлы:
+- src/app/components
+  - header: шапка приложения
+  - country-list: список стран
+  - country-form: добавление/редактирование страны
+  - confirm-dialog: модальное окно подтверждения удаления
+- src/app/models/country.ts: интерфейс/модель Country
+- src/app/services/country.service.ts: сервис данных для CRUD-операций
+- db.json: данные для мок-API (json-server)
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Требования
+- Node.js LTS (рекомендуется v18+) и npm
+- Angular CLI (используется локально через npm-скрипты)
 
-## Code scaffolding
+## Установка и запуск
+1. Установить зависимости:
+   npm install
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+2. Запустить мок-API (json-server на http://localhost:3000):
+   npm run start:api
 
-```bash
-ng generate component component-name
-```
+3. В отдельном терминале запустить dev-сервер Angular (http://localhost:4200):
+   npm start
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Приложение будет автоматически перезагружаться при изменении исходников.
 
-```bash
-ng generate --help
-```
+## Скрипты npm
+- npm start — запуск dev-сервера (ng serve)
+- npm run start:api — запуск json-server, раздача db.json на порту 3000
+- npm run build — сборка продакшн-версии в dist/
+- npm run watch — пересборка при изменениях с конфигурацией development
+- npm test — запуск unit-тестов (Karma + Jasmine)
 
-## Building
+## Мок-API (json-server)
+- Базовый URL: http://localhost:3000
+- Файл данных: db.json
+- Типовые эндпоинты:
+  - GET    /countries
+  - GET    /countries/:id
+  - POST   /countries
+  - PUT    /countries/:id
+  - PATCH  /countries/:id
+  - DELETE /countries/:id
 
-To build the project run:
+Редактируйте db.json для начальных данных. json-server автоматически сохраняет изменения.
 
-```bash
-ng build
-```
+## Конфигурация и окружение
+- Конфигурация Angular: angular.json
+- Конфигурация TypeScript: tsconfig*.json
+- Глобальные стили: src/styles.scss
+- Точки входа: src/main.ts, src/index.html
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## Особенности
+- Формы: реактивные формы и валидация в country-form
+- UI: компоненты/стили Angular Material
+- Подтверждение: confirm-dialog перед разрушительными действиями
+- Сервисы: country.service.ts инкапсулирует HTTP CRUD и RxJS-потоки
 
-## Running unit tests
+## Сборка
+Создать оптимизированную продакшн-сборку:
+  npm run build
+Результат будет в dist/country-app/ и готов к деплою на статический хостинг.
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+## Устранение проблем
+- Конфликты портов:
+  - Если :4200 занят, запустите: ng serve --port 4300
+  - Если :3000 занят, запустите json-server на другом порту:
+      npx json-server --watch db.json --port 3001
+- CORS/сетевые ошибки: убедитесь, что json-server запущен до использования приложения.
+- Несовпадение версий Node/Angular CLI: переустановите зависимости:
+      rm -rf node_modules package-lock.json && npm install
+  В Windows PowerShell используйте:
+      rmdir -Recurse -Force node_modules; del package-lock.json; npm install
 
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## Технологии
+- Angular 19, RxJS 7
+- Angular Material & CDK
+- json-server для мок-бэкенда
