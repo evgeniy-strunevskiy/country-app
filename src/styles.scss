@@ -12,11 +12,6 @@ html {
   );
 }
 
-body {
-  background: var(--mat-sys-surface);
-  color: var(--mat-sys-on-surface);
-}
-
 html,
 body {
   height: 100%;
@@ -24,4 +19,41 @@ body {
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: var(--mat-sys-color-surface);
+  color: var(--mat-sys-color-on-surface);
+}
+
+:root {
+  --app-h-padding: 16px;
+  --app-max-width: 100%;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --app-h-padding: 24px;
+  }
+}
+
+@media (min-width: 1200px) {
+  :root {
+    --app-h-padding: 32px;
+  }
 }

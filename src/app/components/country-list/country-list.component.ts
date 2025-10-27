@@ -22,10 +22,10 @@ import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
   standalone: true,
   imports: [
     MatTableModule,
-    MatButtonModule,
     MatDialogModule,
     RouterLink,
     MatPaginatorModule,
+    MatButtonModule,
   ],
   templateUrl: './country-list.component.html',
   styleUrls: ['./country-list.component.scss'],
